@@ -33,7 +33,7 @@ describe Whois::Parsers::WhoisNicDesign, "status_registered.expected" do
   end
   describe "#domain_id" do
     it do
-      expect(subject.domain_id).to eq("D7069819-CNIC")
+      expect(subject.domain_id).to eq("D44478444-CNIC")
     end
   end
   describe "#status" do
@@ -72,8 +72,8 @@ describe Whois::Parsers::WhoisNicDesign, "status_registered.expected" do
   describe "#registrar" do
     it do
       expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("9999")
-      expect(subject.registrar.name).to eq("Top Level Design, LLC")
+      expect(subject.registrar.id).to eq("1861")
+      expect(subject.registrar.name).to eq("Porkbun, LLC")
       expect(subject.registrar.organization).to eq(nil)
       expect(subject.registrar.url).to eq(nil)
     end
@@ -84,18 +84,18 @@ describe Whois::Parsers::WhoisNicDesign, "status_registered.expected" do
       expect(subject.registrant_contacts.size).to eq(1)
       expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq("H4596017")
+      expect(subject.registrant_contacts[0].id).to eq("C119863473-CNIC")
       expect(subject.registrant_contacts[0].name).to eq("Domain Administrator")
       expect(subject.registrant_contacts[0].organization).to eq("Top Level Design, LLC")
-      expect(subject.registrant_contacts[0].address).to eq("742 Ocean Club Place")
-      expect(subject.registrant_contacts[0].city).to eq("Fernandina Beach")
-      expect(subject.registrant_contacts[0].zip).to eq("32034")
-      expect(subject.registrant_contacts[0].state).to eq("Florida")
+      expect(subject.registrant_contacts[0].address).to eq("707 SW WASHINGTON ST\nSuite 1100")
+      expect(subject.registrant_contacts[0].city).to eq("Portland")
+      expect(subject.registrant_contacts[0].zip).to eq("97205")
+      expect(subject.registrant_contacts[0].state).to eq("Oregon")
       expect(subject.registrant_contacts[0].country).to eq(nil)
       expect(subject.registrant_contacts[0].country_code).to eq("US")
       expect(subject.registrant_contacts[0].phone).to eq("+1.5038888808")
-      expect(subject.registrant_contacts[0].fax).to eq("+1.6788841468")
-      expect(subject.registrant_contacts[0].email).to eq("ray@tldesign.co")
+      expect(subject.registrant_contacts[0].fax).to eq("")
+      expect(subject.registrant_contacts[0].email).to eq("tech@toplevel.design")
     end
   end
   describe "#admin_contacts" do
@@ -104,18 +104,18 @@ describe Whois::Parsers::WhoisNicDesign, "status_registered.expected" do
       expect(subject.admin_contacts.size).to eq(1)
       expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[0].id).to eq("H4596017")
+      expect(subject.admin_contacts[0].id).to eq("C119863478-CNIC")
       expect(subject.admin_contacts[0].name).to eq("Domain Administrator")
       expect(subject.admin_contacts[0].organization).to eq("Top Level Design, LLC")
-      expect(subject.admin_contacts[0].address).to eq("742 Ocean Club Place")
-      expect(subject.admin_contacts[0].city).to eq("Fernandina Beach")
-      expect(subject.admin_contacts[0].zip).to eq("32034")
-      expect(subject.admin_contacts[0].state).to eq("Florida")
+      expect(subject.admin_contacts[0].address).to eq("707 SW WASHINGTON ST\nSuite 1100")
+      expect(subject.admin_contacts[0].city).to eq("Portland")
+      expect(subject.admin_contacts[0].zip).to eq("97205")
+      expect(subject.admin_contacts[0].state).to eq("Oregon")
       expect(subject.admin_contacts[0].country).to eq(nil)
       expect(subject.admin_contacts[0].country_code).to eq("US")
       expect(subject.admin_contacts[0].phone).to eq("+1.5038888808")
-      expect(subject.admin_contacts[0].fax).to eq("+1.6788841468")
-      expect(subject.admin_contacts[0].email).to eq("ray@tldesign.co")
+      expect(subject.admin_contacts[0].fax).to eq("")
+      expect(subject.admin_contacts[0].email).to eq("tech@toplevel.design")
     end
   end
   describe "#technical_contacts" do
@@ -124,18 +124,18 @@ describe Whois::Parsers::WhoisNicDesign, "status_registered.expected" do
       expect(subject.technical_contacts.size).to eq(1)
       expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].id).to eq("H4596017")
+      expect(subject.technical_contacts[0].id).to eq("C119863483-CNIC")
       expect(subject.technical_contacts[0].name).to eq("Domain Administrator")
       expect(subject.technical_contacts[0].organization).to eq("Top Level Design, LLC")
-      expect(subject.technical_contacts[0].address).to eq("742 Ocean Club Place")
-      expect(subject.technical_contacts[0].city).to eq("Fernandina Beach")
-      expect(subject.technical_contacts[0].zip).to eq("32034")
-      expect(subject.technical_contacts[0].state).to eq("Florida")
+      expect(subject.technical_contacts[0].address).to eq("707 SW WASHINGTON ST\nSuite 1100")
+      expect(subject.technical_contacts[0].city).to eq("Portland")
+      expect(subject.technical_contacts[0].zip).to eq("97205")
+      expect(subject.technical_contacts[0].state).to eq("Oregon")
       expect(subject.technical_contacts[0].country).to eq(nil)
       expect(subject.technical_contacts[0].country_code).to eq("US")
       expect(subject.technical_contacts[0].phone).to eq("+1.5038888808")
-      expect(subject.technical_contacts[0].fax).to eq("+1.6788841468")
-      expect(subject.technical_contacts[0].email).to eq("ray@tldesign.co")
+      expect(subject.technical_contacts[0].fax).to eq("")
+      expect(subject.technical_contacts[0].email).to eq("tech@toplevel.design")
     end
   end
   describe "#nameservers" do

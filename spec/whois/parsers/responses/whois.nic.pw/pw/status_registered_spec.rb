@@ -33,7 +33,7 @@ describe Whois::Parsers::WhoisNicPw, "status_registered.expected" do
   end
   describe "#domain_id" do
     it do
-      expect(subject.domain_id).to eq("CNIC-DO949924")
+      expect(subject.domain_id).to eq("D949924-CNIC")
     end
   end
   describe "#status" do
@@ -72,10 +72,10 @@ describe Whois::Parsers::WhoisNicPw, "status_registered.expected" do
   describe "#registrar" do
     it do
       expect(subject.registrar).to be_a(Whois::Parser::Registrar)
-      expect(subject.registrar.id).to eq("7061-EM")
-      expect(subject.registrar.name).to eq(nil)
-      expect(subject.registrar.organization).to eq("MarkMonitor, Inc.")
-      expect(subject.registrar.url).to eq("http://www.markmonitor.com/")
+      expect(subject.registrar.id).to eq("292")
+      expect(subject.registrar.name).to eq("MarkMonitor, Inc.")
+      expect(subject.registrar.organization).to eq(nil)
+      expect(subject.registrar.url).to eq(nil)
     end
   end
   describe "#registrant_contacts" do
@@ -84,9 +84,9 @@ describe Whois::Parsers::WhoisNicPw, "status_registered.expected" do
       expect(subject.registrant_contacts.size).to eq(1)
       expect(subject.registrant_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.registrant_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_REGISTRANT)
-      expect(subject.registrant_contacts[0].id).to eq("H2396041")
-      expect(subject.registrant_contacts[0].name).to eq("DNS Admin - Google Inc")
-      expect(subject.registrant_contacts[0].organization).to eq("Google Inc")
+      expect(subject.registrant_contacts[0].id).to eq("C6800648-CNIC")
+      expect(subject.registrant_contacts[0].name).to eq("DNS Admin")
+      expect(subject.registrant_contacts[0].organization).to eq("Google Inc.")
       expect(subject.registrant_contacts[0].address).to eq("1600 Amphitheatre Parkway")
       expect(subject.registrant_contacts[0].city).to eq("Mountain View")
       expect(subject.registrant_contacts[0].zip).to eq("94043")
@@ -104,9 +104,9 @@ describe Whois::Parsers::WhoisNicPw, "status_registered.expected" do
       expect(subject.admin_contacts.size).to eq(1)
       expect(subject.admin_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.admin_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_ADMINISTRATIVE)
-      expect(subject.admin_contacts[0].id).to eq("H2396041")
-      expect(subject.admin_contacts[0].name).to eq("DNS Admin - Google Inc")
-      expect(subject.admin_contacts[0].organization).to eq("Google Inc")
+      expect(subject.admin_contacts[0].id).to eq("C6800648-CNIC")
+      expect(subject.admin_contacts[0].name).to eq("DNS Admin")
+      expect(subject.admin_contacts[0].organization).to eq("Google Inc.")
       expect(subject.admin_contacts[0].address).to eq("1600 Amphitheatre Parkway")
       expect(subject.admin_contacts[0].city).to eq("Mountain View")
       expect(subject.admin_contacts[0].zip).to eq("94043")
@@ -124,9 +124,9 @@ describe Whois::Parsers::WhoisNicPw, "status_registered.expected" do
       expect(subject.technical_contacts.size).to eq(1)
       expect(subject.technical_contacts[0]).to be_a(Whois::Parser::Contact)
       expect(subject.technical_contacts[0].type).to eq(Whois::Parser::Contact::TYPE_TECHNICAL)
-      expect(subject.technical_contacts[0].id).to eq("H2396041")
-      expect(subject.technical_contacts[0].name).to eq("DNS Admin - Google Inc")
-      expect(subject.technical_contacts[0].organization).to eq("Google Inc")
+      expect(subject.technical_contacts[0].id).to eq("C6800648-CNIC")
+      expect(subject.technical_contacts[0].name).to eq("DNS Admin")
+      expect(subject.technical_contacts[0].organization).to eq("Google Inc.")
       expect(subject.technical_contacts[0].address).to eq("1600 Amphitheatre Parkway")
       expect(subject.technical_contacts[0].city).to eq("Mountain View")
       expect(subject.technical_contacts[0].zip).to eq("94043")
