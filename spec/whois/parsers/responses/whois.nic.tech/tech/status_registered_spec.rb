@@ -38,7 +38,7 @@ describe Whois::Parsers::WhoisNicTech, "status_registered.expected" do
   end
   describe "#status" do
     it do
-      expect(subject.status).to eq(["serverTransferProhibited https://icann.org/epp#serverTransferProhibited", "clientTransferProhibited https://icann.org/epp#clientTransferProhibited", "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited", "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited"])
+      expect(subject.status).to eq(["clientTransferProhibited https://icann.org/epp#clientTransferProhibited", "clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited", "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited"])
     end
   end
   describe "#available?" do
@@ -54,19 +54,19 @@ describe Whois::Parsers::WhoisNicTech, "status_registered.expected" do
   describe "#created_on" do
     it do
       expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2015-07-29 00:00:00 UTC"))
+      expect(subject.created_on).to eq(Time.parse("2015-07-29 14:20:05 UTC"))
     end
   end
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2015-08-04 09:00:43 UTC"))
+      expect(subject.updated_on).to eq(Time.parse("2017-07-14 08:42:20 UTC"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2017-07-29 23:59:59 UTC"))
+      expect(subject.expires_on).to eq(Time.parse("2018-07-29 23:59:59 UTC"))
     end
   end
   describe "#registrar" do

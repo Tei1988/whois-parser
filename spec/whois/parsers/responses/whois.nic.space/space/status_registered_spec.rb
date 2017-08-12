@@ -60,13 +60,13 @@ describe Whois::Parsers::WhoisNicSpace, "status_registered.expected" do
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2015-04-04T00:14:21.0Z"))
+      expect(subject.updated_on).to eq(Time.parse("2017-04-04T00:15:53.0Z"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2016-04-10T23:59:59.0Z"))
+      expect(subject.expires_on).to eq(Time.parse("2018-04-10T23:59:59.0Z"))
     end
   end
   describe "#registrar" do

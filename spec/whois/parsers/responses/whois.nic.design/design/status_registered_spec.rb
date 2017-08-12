@@ -38,7 +38,7 @@ describe Whois::Parsers::WhoisNicDesign, "status_registered.expected" do
   end
   describe "#status" do
     it do
-      expect(subject.status).to eq(["ok"])
+      expect(subject.status).to eq(["clientTransferProhibited https://icann.org/epp#clientTransferProhibited", "clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited"])
     end
   end
   describe "#available?" do
@@ -54,19 +54,19 @@ describe Whois::Parsers::WhoisNicDesign, "status_registered.expected" do
   describe "#created_on" do
     it do
       expect(subject.created_on).to be_a(Time)
-      expect(subject.created_on).to eq(Time.parse("2015-02-27 16:08:32 UTC"))
+      expect(subject.created_on).to eq(Time.parse("2017-02-16 20:11:45 UTC"))
     end
   end
   describe "#updated_on" do
     it do
       expect(subject.updated_on).to be_a(Time)
-      expect(subject.updated_on).to eq(Time.parse("2015-04-21 17:48:34 UTC"))
+      expect(subject.updated_on).to eq(Time.parse("2017-02-21 20:12:16 UTC"))
     end
   end
   describe "#expires_on" do
     it do
       expect(subject.expires_on).to be_a(Time)
-      expect(subject.expires_on).to eq(Time.parse("2016-02-27 23:59:59 UTC"))
+      expect(subject.expires_on).to eq(Time.parse("2018-02-16 23:59:59 UTC"))
     end
   end
   describe "#registrar" do
