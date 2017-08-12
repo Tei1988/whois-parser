@@ -31,7 +31,8 @@ module Whois
       end
 
       property_supported :domain_id do
-        node("Domain ID")
+        node("Domain ID") ||
+        node("Registry Domain ID")
       end
 
 
@@ -84,21 +85,31 @@ module Whois
               :organization => nil,
               :url          => nil
           )
+        end ||
+        node("Registrar IANA ID") do
+          Parser::Registrar.new(
+              :id           => node("Registrar IANA ID"),
+              :name         => node("Registrar"),
+              :organization => nil,
+              :url          => nil
+          )
         end
       end
 
       property_supported :registrant_contacts do
-        build_contact("Registrant", Parser::Contact::TYPE_REGISTRANT)
+        build_contact("Registrant", Parser::Contact::TYPE_REGISTRANT) ||
+        build_contact("Registrant", Parser::Contact::TYPE_REGISTRANT, "Registry ")
       end
 
       property_supported :admin_contacts do
-        build_contact("Admin", Parser::Contact::TYPE_ADMINISTRATIVE)
+        build_contact("Admin", Parser::Contact::TYPE_ADMINISTRATIVE) ||
+        build_contact("Admin", Parser::Contact::TYPE_ADMINISTRATIVE, "Registry ")
       end
 
       property_supported :technical_contacts do
-        build_contact("Tech", Parser::Contact::TYPE_TECHNICAL)
+        build_contact("Tech", Parser::Contact::TYPE_TECHNICAL) ||
+        build_contact("Tech", Parser::Contact::TYPE_TECHNICAL, "Registry ")
       end
-
 
       property_supported :nameservers do
         Array.wrap(node("Name Server")).map do |name|
@@ -106,11 +117,10 @@ module Whois
         end
       end
 
-
       private
 
-      def build_contact(element, type)
-        node("#{element} ID") do
+      def build_contact(element, type, prefix = "")
+        node("#{prefix}#{element} ID") do
           address = [nil, 1, 2, 3].
               map { |i| node("#{element} Street#{i}") }.
               delete_if { |i| i.nil? || i.empty? }.
@@ -119,7 +129,7 @@ module Whois
 
           Parser::Contact.new(
               :type         => type,
-              :id           => node("#{element} ID"),
+              :id           => node("#{prefix}#{element} ID"),
               :name         => node("#{element} Name"),
               :organization => node("#{element} Organization"),
               :address      => address,
